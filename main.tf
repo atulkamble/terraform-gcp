@@ -1,9 +1,18 @@
-provider "google" {
-  project = "YOUR_PROJECT_ID"
-  region  = "us-central1"
+terraform {
+  required_providers {
+    google = {
+      source  = "hashicorp/google"
+      version = "8.12.0"
+    }
+  }
 }
 
-resource "google_storage_bucket" "demo" {
-  name     = "YOUR_UNIQUE_BUCKET_NAME"
+provider "google" {
+  project = "ethans-515409"
+  region  = "us-east1"
+}
+
+resource "google_storage_bucket" "practicebucket" {
+  name     = "practicebucket-ethans"
   location = "US"
 }
