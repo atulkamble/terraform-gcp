@@ -1,27 +1,27 @@
 # Basic GCP with Terraform
 
-A minimal Terraform example that creates one Google Cloud Storage bucket.
+Small Terraform examples for learning Google Cloud resources:
+
+1. **Storage bucket** — the root folder example
+2. **VPC network** — `examples/vpc`
+3. **Virtual machine** — `examples/vm` (may incur charges)
 
 ## Prerequisites
 
-- A Google Cloud project with billing enabled
-- Terraform installed
-- Google Cloud CLI installed
+- Google Cloud project with billing enabled
+- Terraform and Google Cloud CLI installed
 
-Authenticate with Google Cloud:
+Authenticate:
 
 ```bash
 gcloud auth application-default login
 ```
 
-## Configure
+Replace `YOUR_PROJECT_ID` in the example you want to run. Run one example folder at a time.
 
-In `main.tf`, replace:
+## Run an example
 
-- `YOUR_PROJECT_ID` with your Google Cloud project ID
-- `YOUR_UNIQUE_BUCKET_NAME` with a globally unique bucket name
-
-## Run
+From the selected folder:
 
 ```bash
 terraform init
@@ -29,12 +29,14 @@ terraform plan
 terraform apply
 ```
 
-Type `yes` when Terraform asks to create the bucket.
+Type `yes` to create the resource.
 
-## Clean up
+## Delete resources
 
-Delete the bucket and Terraform-managed resources:
+From the same folder:
 
 ```bash
 terraform destroy
 ```
+
+The VM example uses a small machine type, but it can still incur charges. Destroy it when you finish.
