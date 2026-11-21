@@ -1,3 +1,54 @@
+```
+terraform - GCP 
+
+GCP - Google Cloud Platforms - Google - Public Cloud
+
+0. Create project-id 
+1. Enable Billing Account - QR Scan - Google Pay - Account Select - Mandate ON 
+2. Associate Billing account with project id
+
+git clone https://github.com/atulkamble/terraform-gcp.git
+cd /terraform-gcp
+
+terraform {
+  required_providers {
+    google = {
+      source  = "hashicorp/google"
+      version = "8.12.0"
+    }
+  }
+}
+
+provider "google" {
+  project = "ethans-515409"
+  region  = "us-east1"
+}
+
+resource "google_storage_bucket" "practicebucket" {
+  name     = "practicebucket-ethans"
+  location = "US"
+}
+
+
+// install gcloud - mac
+curl https://sdk.cloud.google.com | bash
+
+gcloud init
+gcloud config list
+gcloud config set project PROJECT_ID
+gcloud components update
+gcloud auth login
+
+gcloud --version
+gcloud login 
+gcloud auth application-default login
+terraform init 
+terraform init -upgrade
+terraform validate
+terraform fmt 
+terraform plan
+terraform apply
+```
 # Basic GCP with Terraform
 
 Small Terraform examples for learning Google Cloud resources:
